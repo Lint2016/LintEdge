@@ -374,5 +374,21 @@ backToTopBtn.addEventListener('mouseleave', () => {
     backToTopBtn.style.transform = 'translateY(0)';
     backToTopBtn.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
 });
+//modal content functionality
+
+    document.querySelectorAll('.btn-getstarted').forEach(button=>{
+        button.addEventListener('click', ()=>{
+            console.log('get started button has been clicked!')
+            const modal = document.querySelector('.modal');
+            modal.classList.remove('hidden');//modal displays
+            //remove the modal again
+            modal.addEventListener('click',()=>{
+                modal.classList.add('hidden');
+            })
+        })
+    })
+    
+   
+
 
 console.log('LintEdge website loaded successfully! 🚀');
