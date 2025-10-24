@@ -23,11 +23,22 @@ navLinks.forEach(link => {
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        if (isDarkMode) {
+            navbar.style.background = 'rgba(31, 41, 55, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+        }
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        if (isDarkMode) {
+            navbar.style.background = 'rgba(31, 41, 55, 0.95)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
         navbar.style.boxShadow = 'none';
     }
 });
@@ -40,12 +51,65 @@ navLinks.forEach(link => {
         const targetSection = document.querySelector(targetId);
         
         if (targetSection) {
-            const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
+            const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar with extra spacing
             window.scrollTo({
                 top: offsetTop,
                 behavior: 'smooth'
             });
         }
+    });
+});
+
+// Active navigation highlighting
+const sections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav-link');
+
+function highlightActiveNav() {
+    const scrollY = window.pageYOffset;
+    
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100; // Account for navbar
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${sectionId}`) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+// Run on scroll
+window.addEventListener('scroll', highlightActiveNav);
+
+// Run on page load
+window.addEventListener('load', highlightActiveNav);
+
+// FAQ Accordion
+document.addEventListener('DOMContentLoaded', () => {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const faqItem = question.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
+            }
+        });
     });
 });
 
@@ -115,9 +179,13 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Contact form handling
+// Contact form handling with Formspree
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoader = submitBtn.querySelector('.btn-loader');
+    
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         
         // Get form data
@@ -137,12 +205,40 @@ if (contactForm) {
             return;
         }
         
-        // Simulate form submission
-        showNotification('Thank you! Your message has been sent. We\'ll get back to you soon.', 'success');
-        contactForm.reset();
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = 'none';
+        btnLoader.style.display = 'inline';
         
-        // In a real application, you would send the data to your server
-        console.log('Form data:', data);
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                showNotification('Thank you! Your message has been sent. We\'ll get back to you soon.', 'success');
+                contactForm.reset();
+            } else {
+                const data = await response.json();
+                if (data.errors) {
+                    showNotification('Please fix the errors and try again.', 'error');
+                } else {
+                    showNotification('Something went wrong. Please try again later.', 'error');
+                }
+            }
+        } catch (error) {
+            console.error('Form submission error:', error);
+            showNotification('Network error. Please check your connection and try again.', 'error');
+        } finally {
+            // Reset loading state
+            submitBtn.disabled = false;
+            btnText.style.display = 'inline';
+            btnLoader.style.display = 'none';
+        }
     });
 }
 
@@ -374,21 +470,131 @@ backToTopBtn.addEventListener('mouseleave', () => {
     backToTopBtn.style.transform = 'translateY(0)';
     backToTopBtn.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
 });
-//modal content functionality
-
-    document.querySelectorAll('.btn-getstarted').forEach(button=>{
-        button.addEventListener('click', ()=>{
-            console.log('get started button has been clicked!')
-            const modal = document.querySelector('.modal');
-            modal.classList.remove('hidden');//modal displays
-            //remove the modal again
-            modal.addEventListener('click',()=>{
-                modal.classList.add('hidden');
-            })
-        })
-    })
+// Modal functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.querySelector('.modal');
+    const closeBtn = modal.querySelector('.close');
+    const modalContent = modal.querySelector('.modal-content');
     
-   
-
+    // Open modal when clicking "Get Started" buttons
+    document.querySelectorAll('.btn-getstarted').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.remove('hidden');
+        });
+    });
+    
+    // Close modal when clicking the close button
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    }
+    
+    // Close modal when clicking outside the modal content (on backdrop)
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+        }
+    });
+});
 
 console.log('LintEdge website loaded successfully! 🚀');
+
+// Cookie Consent Banner
+document.addEventListener('DOMContentLoaded', () => {
+    const cookieConsent = document.getElementById('cookieConsent');
+    const acceptBtn = document.getElementById('acceptCookies');
+    const declineBtn = document.getElementById('declineCookies');
+    
+    // Check if user has already made a choice
+    const cookieChoice = localStorage.getItem('cookieConsent');
+    
+    if (!cookieChoice) {
+        // Show banner after 1 second delay
+        setTimeout(() => {
+            cookieConsent.classList.remove('hidden');
+        }, 1000);
+    }
+    
+    // Accept cookies
+    acceptBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        cookieConsent.classList.add('hidden');
+        // Enable analytics here
+        console.log('Cookies accepted - Analytics enabled');
+    });
+    
+    // Decline cookies
+    declineBtn.addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'declined');
+        cookieConsent.classList.add('hidden');
+        console.log('Cookies declined - Analytics disabled');
+    });
+    
+    // Newsletter Form
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Simulate newsletter subscription
+            showNotification('Thank you for subscribing! Check your email for confirmation.', 'success');
+            newsletterForm.reset();
+            
+            // In production, send to your newsletter service (Mailchimp, ConvertKit, etc.)
+            console.log('Newsletter subscription:', email);
+        });
+    }
+    
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const icon = darkModeToggle.querySelector('i');
+    
+    // Check for saved theme preference
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    // Update icon based on theme
+    if (currentTheme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    }
+    
+    // Toggle dark mode
+    darkModeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Update icon
+        if (newTheme === 'dark') {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+        
+        // Update navbar background based on scroll position
+        const scrollEvent = new Event('scroll');
+        window.dispatchEvent(scrollEvent);
+    });
+});

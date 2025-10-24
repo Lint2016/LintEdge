@@ -1,0 +1,21 @@
+# robots.txt for lintedge.com
+
+# Allow all bots to crawl the entire site
+User-agent: *
+Allow: /
+
+# Disallow admin and private directories (if they exist in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Disallow specific file types
+Disallow: *.json$
+Disallow: *.xml$
+Disallow: /*.pdf$
+
+# Sitemap location
+Sitemap: https://lintedge.com/sitemap.xml
+
+# Crawl delay (optional - be respectful to servers)
+# Crawl-delay: 1
+

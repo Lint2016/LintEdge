@@ -8,19 +8,126 @@
     <meta name="keywords" content="technology solutions, smart solutions, business innovation, digital transformation, software development, AI solutions, IoT, automation">
     <meta name="author" content="LintEdge">
     <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://lintedge.com/">
+    
+    <!-- Open Graph / Facebook -->
     <meta property="og:title" content="LintEdge - Smart Solutions for Smarter Living">
     <meta property="og:description" content="Transform your business with our innovative technology solutions that solve real-world problems.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lintedge.com">
-    <meta property="og:image" content="images/LIntEdge2.png">
+    <meta property="og:image" content="https://lintedge.com/images/LIntEdge2.png">
+    <meta property="og:site_name" content="LintEdge">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LintEdge - Smart Solutions for Smarter Living">
+    <meta name="twitter:description" content="Transform your business with our innovative technology solutions that solve real-world problems.">
+    <meta name="twitter:image" content="https://lintedge.com/images/LIntEdge2.png">
+    
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="images/LIntEdge2.png" type="image/x-icon">
+    
+    <!-- Performance Optimization: Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://formspree.io">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://www.google.com">
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="sitemap.xml">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LintEdge",
+      "url": "https://lintedge.com",
+      "logo": "https://lintedge.com/images/LIntEdge2.png",
+      "description": "Smart solutions for smarter living. Transform your business with our innovative technology solutions.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "271 Columbine Ave",
+        "addressLocality": "Mondeor",
+        "addressRegion": "Johannesburg South",
+        "postalCode": "2091",
+        "addressCountry": "ZA"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+27-67-1630558",
+        "contactType": "customer service",
+        "email": "Info@lintedge.com",
+        "areaServed": "ZA",
+        "availableLanguage": "en"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/lintedge",
+        "https://twitter.com/lintedge",
+        "https://www.facebook.com/lintedge",
+        "https://www.instagram.com/lintedge"
+      ],
+      "service": [
+        {
+          "@type": "Service",
+          "serviceType": "Custom Software Development",
+          "description": "Tailored software solutions designed to meet your specific business requirements"
+        },
+        {
+          "@type": "Service",
+          "serviceType": "AI Solutions",
+          "description": "Intelligent solutions that learn, adapt, and optimize your business processes"
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Cloud Solutions",
+          "description": "Scalable cloud infrastructure and services that ensure reliability and security"
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Data Analytics",
+          "description": "Transform your data into actionable insights that drive informed decision-making"
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Cybersecurity",
+          "description": "Comprehensive security solutions that protect your digital assets"
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Digital Transformation",
+          "description": "End-to-end digital transformation services that modernize your business operations"
+        }
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "LintEdge",
+      "url": "https://lintedge.com",
+      "description": "Smart solutions for smarter living. Transform your business with innovative technology solutions.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://lintedge.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="images/LIntEdge2.png" alt="LintEdge Logo" class="logo-img">
@@ -32,9 +139,14 @@
                 <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
                 <li class="nav-item"><a href="#solutions" class="nav-link">Solutions</a></li>
                 <li class="nav-item"><a href="#case-studies" class="nav-link">Case Studies</a></li>
+                <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
-            <div class="hamburger">
+            <div class="nav-actions">
+                <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -43,7 +155,8 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <main id="main-content">
+    <section id="home" class="hero" aria-label="Hero section">
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
@@ -55,13 +168,13 @@
                     transforming businesses and enhancing lives through cutting-edge innovation.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Get Started</a>
-                    <a href="#solutions" class="btn btn-secondary">Explore Solutions</a>
+                    <a href="#contact" class="btn btn-primary" aria-label="Get started with LintEdge">Get Started</a>
+                    <a href="#solutions" class="btn btn-secondary" aria-label="Explore our solutions">Explore Solutions</a>
                 </div>
             </div>
             <div class="hero-visual">
                 <div class="hero-image">
-                    <img src="images/LIntEdge2.png" alt="LintEdge Innovation" class="main-image">
+                    <img src="images/LIntEdge2.png" alt="LintEdge - Smart Solutions for Smarter Living" class="main-image">
                     <div class="floating-elements">
                         <div class="float-element" data-speed="2">
                             <i class="fas fa-robot"></i>
@@ -114,7 +227,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="images/LIntEdge2.png" alt="LintEdge Team" class="about-img">
+                    <img src="images/LIntEdge2.png" alt="LintEdge team working on innovative technology solutions" class="about-img" loading="lazy">
                 </div>
             </div>
         </div>
@@ -220,7 +333,7 @@
             <div class="solutions-content">
                 <div class="solution-item">
                     <div class="solution-image">
-                        <img src="images/pexels-divinetechygirl-1181673.jpg" alt="divinetech" class="solution-img">
+                        <img src="images/pexels-divinetechygirl-1181673.jpg" alt="Developer working on DevLog Tracker application" class="solution-img" loading="lazy">
                     </div>
                     <div class="solution-text">
                         <h3>DevLog Tracker</h3>
@@ -234,7 +347,7 @@
                 </div>
                 <div class="solution-item reverse">
                     <div class="solution-image">
-                        <img src="images/petCare.jpg" alt="petCare" class="solution-img">
+                        <img src="images/petCare.jpg" alt="Pet care management with Pet-Guardian app" class="solution-img" loading="lazy">
                     </div>
                     <div class="solution-text">
                         <h3>Pet-Guardian</h3>
@@ -248,7 +361,7 @@
                 </div>
                 <div class="solution-item">
                     <div class="solution-image">
-                        <img src="images/fintech.png" alt="Financial Technology" class="solution-img">
+                        <img src="images/fintech.png" alt="Financial expense tracking dashboard" class="solution-img" loading="lazy">
                     </div>
                     <div class="solution-text">
                         <h3>Expenses Tracker</h3>
@@ -258,6 +371,21 @@
                             <span class="feature-tag">Spending Insights</span>
                             <span class="feature-tag">Budget Categorization</span>
                         </div>
+                    </div>
+                </div>
+                <div class="solution-item reverse">
+                    <div class="solution-image">
+                        <img src="images/about-picture (1).jpg" alt="All Africa Apostolic Summit 2026 event registration platform" class="solution-img" loading="lazy">
+                    </div>
+                    <div class="solution-text">
+                        <h3>All Africa Apostolic Summit 2026</h3>
+                        <p>A comprehensive event management platform with integrated payment processing for seamless registration. Currently serving 1200+ registered attendees for the February 2026 summit.</p>
+                        <div class="solution-features">
+                            <span class="feature-tag">Event Registration</span>
+                            <span class="feature-tag">Payment Integration</span>
+                            <span class="feature-tag">Attendee Management</span>
+                        </div>
+                        <a href="https://aaasummit.co.za" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 20px; display: inline-block;" aria-label="Visit All Africa Apostolic Summit 2026">Visit Site</a>
                     </div>
                 </div>
             </div>
@@ -274,7 +402,7 @@
             <div class="case-studies-grid">
                 <div class="case-study-card">
                     <div class="case-study-image">
-                        <img src="images/fintech.png" alt="Manufacturing Case Study" class="case-img">
+                        <img src="images/fintech.png" alt="Expenses Tracker success metrics dashboard" class="case-img" loading="lazy">
                     </div>
                     <div class="case-study-content">
                         <h3>Expenses Tracker Results</h3>
@@ -291,12 +419,12 @@
                                 <span class="result-label">Budget Adherence</span>
                             </div>
                         </div>
-                        <button class="btn btn-primary btn-getstarted" style="margin-top: 20px;">Get Started</button>
+                        <button class="btn btn-primary btn-getstarted" style="margin-top: 20px;" aria-label="Get started with Expenses Tracker">Get Started</button>
                     </div>
                 </div>
                 <div class="case-study-card">
                     <div class="case-study-image">
-                        <img src="images/petCare.jpg" alt="petCare" class="case-img">
+                        <img src="images/petCare.jpg" alt="Pet-Guardian app interface showing pet health tracking" class="case-img" loading="lazy">
                     </div>
                     <div class="case-study-content">
                         <h3>Pet-Guardian Impact</h3>
@@ -318,7 +446,7 @@
                 </div>
                 <div class="case-study-card">
                     <div class="case-study-image">
-                        <img src="images/pexels-divinetechygirl-1181673.jpg" alt="divinetech" class="case-img">
+                        <img src="images/pexels-divinetechygirl-1181673.jpg" alt="DevLog Tracker platform showing development progress" class="case-img" loading="lazy">
                     </div>
                     <div class="case-study-content">
                         <h3>DevLog Tracker Platform</h3>
@@ -335,7 +463,120 @@
                                 <span class="result-label">Learning Retention</span>
                             </div>
                         </div>
-                        <a href="https://lint2016.github.io/DevLog-Tracker/auth.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;">Get Started</a>
+                        <a href="https://lint2016.github.io/DevLog-Tracker/auth.html" class="btn btn-primary" style="margin-top: 20px; display: inline-block;" aria-label="Get started with DevLog Tracker">Get Started</a>
+                    </div>
+                </div>
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="images/about-picture (1).jpg" alt="All Africa Apostolic Summit 2026 event registration platform" class="case-img" loading="lazy">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>All Africa Apostolic Summit 2026</h3>
+                        <p class="case-study-description">
+                            Built a professional event registration platform with integrated payment processing for the All Africa Apostolic Summit 2026. Successfully handling 100+ registrations with seamless payment flow and real-time attendee management.
+                        </p>
+                        <div class="case-study-results">
+                            <div class="result-item">
+                                <span class="result-number">100+</span>
+                                <span class="result-label">Registered Users</span>
+                            </div>
+                            <div class="result-item">
+                                <span class="result-number">100%</span>
+                                <span class="result-label">Payment Success Rate</span>
+                            </div>
+                        </div>
+                        <a href="https://aaasummit.co.za" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="margin-top: 20px; display: inline-block;" aria-label="Visit All Africa Apostolic Summit 2026">Visit Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Everything you need to know about our services</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What services does LintEdge offer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We specialize in building websites, web applications, and landing pages. We also integrate payment systems to enable e-commerce functionality for your business. Our solutions are built using either WordPress or custom code, depending on your specific needs and preferences.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Which development approach do you use - WordPress or custom code?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with both! For simpler websites or clients who prefer easy content management, we use WordPress. For complex web applications requiring custom functionality, we build with custom code using modern technologies like Firebase, JavaScript, HTML, and CSS. We discuss both options during our initial consultation to determine the best fit for your project.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How long does a typical project take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Project timelines vary depending on scope and complexity. We provide a detailed timeline after analyzing your requirements. Regardless of project size, we're very strict about meeting deadlines and ensure timely delivery of your project.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do you integrate payment systems?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We integrate secure payment gateways including Stripe, PayPal, PayFast, and other local payment processors. Our team handles the entire payment integration process, ensuring PCI compliance and secure transaction processing for your customers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What technologies do you use?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Our tech stack includes Firebase for backend services and authentication, JavaScript for interactivity, HTML and CSS for structure and styling, Netlify for reliable hosting, and FontAwesome for beautiful icons. We stay updated with the latest web technologies to ensure your project is built with modern, efficient tools.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do you provide ongoing maintenance and support?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! We offer comprehensive maintenance and support packages to keep your website or application running smoothly. Our ongoing support includes bug fixes, security updates, performance monitoring, content updates, and technical support. We're committed to your long-term success.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do you ensure data security?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We implement industry-standard security measures including SSL encryption, secure API integrations, regular security audits, and data backup systems. We follow best practices for data protection and ensure your client data is always secure. We can also help with compliance requirements as needed.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How do I get started?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Getting started is easy! Simply fill out our contact form below with your project details. Once we receive your information, we'll review your requirements and schedule a consultation to discuss your needs, answer any questions, and outline the next steps for your project.</p>
                     </div>
                 </div>
             </div>
@@ -356,7 +597,7 @@
                     <div class="contact-details">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <span>Info@lintedge.com</span>
+                            <span>Info@lintedge.co.za</span>
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-phone"></i>
@@ -364,18 +605,24 @@
                         </div>
                         <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>271 Columbine Avenue, Mondeor Blvrd, JHB-Mondeor 2091, South-Africa</span>
+                            <span>271 Columbine Ave, Mondeor, Johannesburg South, 2091</span>
                         </div>
                     </div>
+                    <div class="map-link-wrapper">
+                        <a href="https://www.google.com/maps/search/?api=1&query=271+Columbine+Ave,+Mondeor,+Johannesburg+South,+2091" target="_blank" rel="noopener noreferrer" class="map-link" aria-label="Open location in Google Maps">
+                            <i class="fas fa-directions"></i> Get Directions
+                        </a>
+                    </div>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <!-- Update these URLs with your actual social media profiles -->
+                        <a href="https://www.linkedin.com/company/lintedge" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://twitter.com/lintedge" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.facebook.com/lintedge" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/lintedge" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contactForm" action="https://formspree.io/f/mjkandzl" method="POST">
                         <div class="form-group">
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
@@ -399,20 +646,62 @@
                         <div class="form-group">
                             <textarea id="message" name="message" placeholder="Tell us about your project" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" id="submitBtn" aria-label="Submit contact form">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loader" style="display: none;">
+                                <i class="fas fa-spinner"></i> Sending...
+                            </span>
+                        </button>
                     </form>
+                </div>
+            </div>
+            
+            <!-- Map Section -->
+            <div class="map-container">
+                <h3 class="map-title">Find Us</h3>
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3577.5353747206623!2d28.0102444!3d-26.276738899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9508b12f5acb5b%3A0x9141162c9c9c4c71!2s271%20Columbine%20Ave%2C%20Mondeor%2C%20Johannesburg%20South%2C%202091!5e0!3m2!1sen!2sza!4v1761313535080!5m2!1sen!2sza" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="LintEdge Office Location">
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
 
+    </main>
+    
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for the latest insights, updates, and technology trends.</p>
+                </div>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email address" required aria-label="Newsletter email input">
+                    <button type="submit" class="btn btn-primary" aria-label="Subscribe to newsletter">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-logo">
-                        <img src="images/LIntEdge2.png" alt="LintEdge Logo" class="footer-logo-img">
+                        <img src="images/LIntEdge2.png" alt="LintEdge Logo" class="footer-logo-img" loading="lazy">
                         <span class="footer-logo-text">LintEdge</span>
                     </div>
                     <p class="footer-description">
@@ -434,6 +723,7 @@
                         <li><a href="https://lint2016.github.io/DevLog-Tracker/auth.html">DevLog Tracker</a></li>
                         <li><a href="#solutions" class="btn-getstarted">Pet Pet-Guardian</a></li>
                         <li><a href="#solutions" class="btn-getstarted">Expenses Tracker</a></li>
+                        <li><a href="https://aaasummit.co.za" target="_blank" rel="noopener noreferrer">All Africa Apostolic Summit</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -452,7 +742,33 @@
         </div>
     </footer>
 
+    <!-- Google Analytics - Replace GA_MEASUREMENT_ID with your actual ID -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
+    
     <script src="index.js"></script>
+    
+    <!-- Cookie Consent Banner -->
+    <div id="cookieConsent" class="cookie-consent hidden">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <i class="fas fa-cookie-bite"></i>
+                <p>We use cookies to enhance your browsing experience and analyze site traffic. By continuing to use this site, you consent to our use of cookies.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button id="acceptCookies" class="btn btn-primary btn-sm">Accept All</button>
+                <button id="declineCookies" class="btn btn-secondary btn-sm">Decline</button>
+            </div>
+        </div>
+    </div>
+    
     <div class="modal hidden">
     <div class="modal-content">
         <span class="close">&times;</span>
