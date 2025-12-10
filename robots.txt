@@ -19,3 +19,4 @@ Sitemap: https://lintedge.com/sitemap.xml
 # Crawl delay (optional - be respectful to servers)
 # Crawl-delay: 1
 
+
