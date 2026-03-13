@@ -23,23 +23,10 @@ navLinks.forEach(link => {
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
-    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
-    
     if (window.scrollY > 100) {
-        if (isDarkMode) {
-            navbar.style.background = 'rgba(31, 41, 55, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-        }
+        navbar.classList.add('scrolled');
     } else {
-        if (isDarkMode) {
-            navbar.style.background = 'rgba(31, 41, 55, 0.95)';
-        } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-        }
-        navbar.style.boxShadow = 'none';
+        navbar.classList.remove('scrolled');
     }
 });
 
@@ -113,23 +100,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Scroll reveal animation
-const revealElements = document.querySelectorAll('.service-card, .case-study-card, .solution-item, .about-content');
-
+// Consolidated Scroll Reveal Animation using Intersection Observer
 const revealOnScroll = () => {
-    const windowHeight = window.innerHeight;
-    const revealPoint = 150;
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
 
-    revealElements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        
-        if (elementTop < windowHeight - revealPoint) {
-            element.classList.add('reveal', 'active');
-        }
-    });
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Optional: Stop observing after reveal
+                // revealObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(el => revealObserver.observe(el));
 };
 
-window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
 // Counter animation for statistics
@@ -329,25 +320,7 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Intersection Observer for better performance
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-up');
-        }
-    });
-}, observerOptions);
-
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.service-card, .case-study-card, .solution-item, .about-content, .contact-content');
-    animateElements.forEach(el => observer.observe(el));
-});
+// Animations initialized via Consolidated Scroll Reveal
 
 // Typing animation for hero title
 function typeWriter(element, text, speed = 100) {
