@@ -571,3 +571,27 @@ document.addEventListener('DOMContentLoaded', () => {
         window.dispatchEvent(scrollEvent);
     });
 });
+// WhatsApp Floating Button Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const whatsappGreeting = document.getElementById('whatsappGreeting');
+    const closeGreeting = document.querySelector('.greeting-close');
+
+    if (whatsappGreeting) {
+        // Show greeting after 5 seconds
+        setTimeout(() => {
+            if (!localStorage.getItem('wa-greeting-closed')) {
+                whatsappGreeting.classList.remove('hidden');
+            }
+        }, 5000);
+
+        // Close greeting logic
+        if (closeGreeting) {
+            closeGreeting.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                whatsappGreeting.classList.add('hidden');
+                localStorage.setItem('wa-greeting-closed', 'true');
+            });
+        }
+    }
+});

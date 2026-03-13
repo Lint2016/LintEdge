@@ -1775,3 +1775,98 @@ html {
         gap: 30px;
     }
 }
+
+/* Floating WhatsApp Button */
+.whatsapp-container {
+    position: fixed;
+    bottom: 110px;
+    right: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.whatsapp-float {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: wa-pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-greeting {
+    background: var(--glass-background);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    padding: 12px 20px;
+    border-radius: 15px 15px 0 15px;
+    box-shadow: var(--glass-shadow);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    max-width: 220px;
+    position: relative;
+    animation: wa-slideIn 0.5s ease-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10px;
+}
+
+.whatsapp-greeting.hidden {
+    display: none;
+}
+
+.greeting-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    margin-left: 5px;
+}
+
+.greeting-close:hover {
+    color: var(--primary-color);
+}
+
+@keyframes wa-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes wa-slideIn {
+    from { opacity: 0; transform: translateY(20px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 768px) {
+    .whatsapp-container {
+        bottom: 90px;
+        right: 20px;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+    }
+}
